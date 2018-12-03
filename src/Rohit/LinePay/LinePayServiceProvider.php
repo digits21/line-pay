@@ -38,7 +38,7 @@ class LinePayServiceProvider extends ServiceProvider
             $packageConfigFile, 'line-pay'
         );
 
-        $this->app['line-pay'] = $this->app->share(function () {
+        $this->app['line-pay'] = $this->app->singleton('line-pay',function () {
             return new LinePay();
         });
     }
